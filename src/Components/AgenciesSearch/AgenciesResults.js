@@ -33,11 +33,30 @@ export default function AgenciesResults(props) {
         result.description = result.description.slice(0, 150).concat('...');
       }
 
+      if (!result.image_url) {
+        switch (result.type) {
+          case 'Government':
+            result.avatar = "🏛️";
+            break;
+          case 'Commercial':
+            result.avatar = "🏢";
+            break;
+          case 'Multinational':
+            result.avatar = "🏢";
+            break;
+          default:
+            result.avatar = "🏢";
+            break;
+        }
+      }
+
       return(
         <div>
           <ListItem alignItems="flex-start">
             <ListItemAvatar>
-              <Avatar variant='rounded' alt={result.abbrev} src={result.image_url} />
+              <Avatar variant='rounded' alt={result.abbrev} src={result.image_url}>
+                {result.avatar}
+              </Avatar>
             </ListItemAvatar>
             <ListItemText
               primary={result.name}
