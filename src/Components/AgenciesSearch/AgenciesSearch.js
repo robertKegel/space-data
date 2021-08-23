@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { TextField, Button, Paper } from '@material-ui/core';
 import LaunchLibrary from '../../util/LaunchLibrary';
+import AgenciesResults from './AgenciesResults';
 
 function AgenciesSearch() {
   const [ search, setSearch ] = useState({
@@ -43,14 +44,7 @@ function AgenciesSearch() {
         <Button variant="outlined" onClick={getAgencyList}>Search</Button>
       </Paper>
       <Paper className='agencies-results'>
-        {results.results.map(result => {
-          return (
-            <div>
-              <h3>{result.name}</h3>
-              <p>{result.description}</p>
-            </div>
-          )
-        })}
+        <AgenciesResults results={results.results} />
       </Paper>
     </div>
   );
