@@ -19,6 +19,13 @@ function AgenciesSearch() {
     setSearch((prev) =>{ return {...prev, ...{ term: e.target.value } }});
   }
 
+  function handleSearchKeydown(e) {
+    let isEnter = e.code.includes('Enter');
+    if (isEnter) {
+      getAgencyList();
+    }
+  }
+
   async function getAgencyList() {
     
     let data = await LaunchLibrary.getAgencyList(search.term);
@@ -38,10 +45,11 @@ function AgenciesSearch() {
           label="Search" 
           variant="outlined" 
           onChange={handleSearchChange} 
+          onKeyDown={handleSearchKeydown}
           value={search.term}
           fullWidth
         />
-        <Button variant="outlined" onClick={getAgencyList}>Search</Button>
+        <Button fullWidth color='primary' variant="outlined" onClick={getAgencyList}>Search</Button>
       </Paper>
       <Paper className='agencies-results'>
         <AgenciesResults results={results.results} />
