@@ -1,10 +1,15 @@
-import AgenciesSearch from "../AgenciesSearch/AgenciesSearch"
+import AgenciesSearch from "../AgenciesSearch/AgenciesSearch";
+import React from 'react';
 import './App.css';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 function App() {
 
   return (
-    <AgenciesSearch />
+    <React.Fragment>
+      <CssBaseline />
+      <AgenciesSearch />
+    </React.Fragment>
   );
 }
 
