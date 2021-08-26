@@ -3,7 +3,7 @@ import { TextField, Button, Paper } from '@material-ui/core';
 import LaunchLibrary from '../../util/LaunchLibrary';
 import AgenciesResults from './AgenciesResults';
 
-function AgenciesSearch() {
+export default function AgenciesSearch() {
   const [ search, setSearch ] = useState({
     term: "",
     results: []
@@ -26,15 +26,16 @@ function AgenciesSearch() {
     }
   }
 
-  async function getAgencyList() {
-    
-    let data = await LaunchLibrary.getAgencyList(search.term);
-    setResults((prev) =>{ return {...prev, ...{
-      count: data.count,
-      next: data.next,
-      previous: data.previous,
-      results: data.results
-    }}})
+  function getAgencyList() {
+    LaunchLibrary.getAgencyList(search.term)
+      .then((data) => { 
+        setResults((prev) =>{ return {...prev, ...{
+          count: data.count,
+          next: data.next,
+          previous: data.previous,
+          results: data.results
+        }}})
+      })
   }
 
   return (
@@ -49,7 +50,14 @@ function AgenciesSearch() {
           value={search.term}
           fullWidth
         />
-        <Button fullWidth color='primary' variant="outlined" onClick={getAgencyList}>Search</Button>
+        <Button 
+          fullWidth 
+          color='primary' 
+          variant="outlined" 
+          onClick={getAgencyList}
+        >
+          Search
+        </Button>
       </Paper>
       <Paper className='agencies-results'>
         <AgenciesResults results={results.results} />
@@ -57,5 +65,3 @@ function AgenciesSearch() {
     </div>
   );
 }
-
-export default AgenciesSearch;
