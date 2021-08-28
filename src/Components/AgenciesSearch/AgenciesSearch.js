@@ -6,7 +6,8 @@ import AgencyPage from './AgencyPage';
 
 export default function AgenciesSearch() {
   const [ search, setSearch ] = useState({
-    term: ""
+    term: "",
+    searching: false,
   });
   const [ results, setResults ] = useState({
     count: null,
@@ -19,7 +20,7 @@ export default function AgenciesSearch() {
   })
 
   function handleSearchChange(e) {
-    setSearch((prev) =>{ return {...prev, ...{ term: e.target.value } }});
+    setSearch((prev) => { return {...prev, ...{ term: e.target.value }}});
   }
 
   function handleSearchKeydown(e) {
@@ -29,22 +30,24 @@ export default function AgenciesSearch() {
     }
   }
 
-  function getAgencyList() {
-    LaunchLibrary.getAgencyList(search.term)
+  async function getAgencyList() {
+    setSearch((prev) => { return {...prev, ...{ searching: true }}})
+    await LaunchLibrary.getAgencyList(search.term)
       .then((data) => { 
-        setResults((prev) =>{ return {...prev, ...{
+        setResults((prev) => { return {...prev, ...{
           count: data.count,
           next: data.next,
           previous: data.previous,
           results: data.results
         }}})
       })
+    setSearch((prev) => { return {...prev, ...{ searching: false }}})
   }
 
   function getAgency(id) {
     LaunchLibrary.getAgency(id)
       .then((data) => {
-        setAgency((prev) => {return {...prev, ...{ agency: data}}})
+        setAgency((prev) => { return {...prev, ...{ agency: data }}})
       })
   }
 

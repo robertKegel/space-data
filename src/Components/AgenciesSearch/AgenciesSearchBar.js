@@ -2,6 +2,8 @@ import { TextField, Button, Paper } from '@material-ui/core';
 
 export default function AgenciesSearchBar(props) {
   
+  let searchButtonText = props.search.searching ? "Searching..." : "Search";
+
   return (
     <Paper className='agencies-search'>
       <TextField 
@@ -19,7 +21,7 @@ export default function AgenciesSearchBar(props) {
         variant="outlined" 
         onClick={props.getAgencyList}
       >
-        Search
+        { searchButtonText }
       </Button>
     </Paper>
   )
