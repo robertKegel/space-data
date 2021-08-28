@@ -18,6 +18,9 @@ const useStyles = makeStyles((theme) => ({
   inline: {
     display: 'inline',
   },
+  linkCursor: {
+    cursor: 'pointer',
+  }
 }));
 
 export default function AgenciesResults(props) {
@@ -52,8 +55,8 @@ export default function AgenciesResults(props) {
       }
 
       return(
-        <div>
-          <ListItem alignItems="flex-start">
+        <div onClick={ () => { props.getAgency(result.id)} }>
+          <ListItem alignItems="flex-start" className={classes.linkCursor}>
             <ListItemAvatar>
               <Avatar variant='rounded' alt={result.abbrev} src={result.image_url}>
                 {result.avatar}
