@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { TextField, Button, Paper } from '@material-ui/core';
 import LaunchLibrary from '../../util/LaunchLibrary';
 import AgenciesResults from './AgenciesResults';
+import AgenciesSearchBar from './AgenciesSearchBar';
 
 export default function AgenciesSearch() {
   const [ search, setSearch ] = useState({
@@ -40,28 +40,13 @@ export default function AgenciesSearch() {
 
   return (
     <div>
-      <Paper class='agencies-search'>
-        <TextField 
-          id="agencies-search" 
-          label="Search" 
-          variant="outlined" 
-          onChange={handleSearchChange} 
-          onKeyDown={handleSearchKeydown}
-          value={search.term}
-          fullWidth
-        />
-        <Button 
-          fullWidth 
-          color='primary' 
-          variant="outlined" 
-          onClick={getAgencyList}
-        >
-          Search
-        </Button>
-      </Paper>
-      <Paper className='agencies-results'>
-        <AgenciesResults results={results.results} />
-      </Paper>
+      <AgenciesSearchBar 
+        getAgencyList={getAgencyList} 
+        handleSearchKeydown={handleSearchKeydown} 
+        handleSearchChange={handleSearchChange} 
+        search={search}
+      />
+      <AgenciesResults results={results.results} />
     </div>
   );
 }
