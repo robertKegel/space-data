@@ -2,17 +2,20 @@ import { useState } from 'react';
 import LaunchLibrary from '../../util/LaunchLibrary';
 import AgenciesResults from './AgenciesResults';
 import AgenciesSearchBar from './AgenciesSearchBar';
+import AgencyPage from './AgencyPage';
 
 export default function AgenciesSearch() {
   const [ search, setSearch ] = useState({
-    term: "",
-    results: []
+    term: ""
   });
   const [ results, setResults ] = useState({
     count: null,
     next: null,
     previous: null,
     results: []
+  })
+  const [ agency, setAgency ] = useState({
+    agency: null
   })
 
   function handleSearchChange(e) {
@@ -38,15 +41,28 @@ export default function AgenciesSearch() {
       })
   }
 
-  return (
-    <div>
-      <AgenciesSearchBar 
-        getAgencyList={getAgencyList} 
-        handleSearchKeydown={handleSearchKeydown} 
-        handleSearchChange={handleSearchChange} 
-        search={search}
-      />
-      <AgenciesResults results={results.results} />
-    </div>
-  );
+  function getAgency(id) {
+    LaunchLibrary.getAgency(id)
+      .then((data) => {
+        setAgency((prev) => {return {...prev, ...{ agency: data}}})
+      })
+  }
+
+  if (agency.agency) {
+    return (
+      <AgencyPage agency={agency.agency} setAgency={setAgency} />
+    )
+  } else {
+    return (
+      <div>
+        <AgenciesSearchBar 
+          getAgencyList={getAgencyList} 
+          handleSearchKeydown={handleSearchKeydown} 
+          handleSearchChange={handleSearchChange} 
+          search={search}
+        />
+        <AgenciesResults results={results.results} getAgency={getAgency} />
+      </div>
+    );
+  }
 }
