@@ -3,7 +3,7 @@ import { TextField, Button, Paper } from '@material-ui/core';
 export default function AgenciesSearchBar(props) {
   
   return (
-    <Paper class='agencies-search'>
+    <Paper className='agencies-search'>
       <TextField 
         id="agencies-search" 
         label="Search" 

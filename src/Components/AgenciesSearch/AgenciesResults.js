@@ -27,7 +27,7 @@ export default function AgenciesResults(props) {
   const classes = useStyles();
 
   return (
-  <Paper class='agencies-results'>
+  <Paper className='agencies-results'>
     <List className={classes.root}>
     {props.results.map((result) => {
       if (!result.description){
@@ -56,7 +56,7 @@ export default function AgenciesResults(props) {
 
       return(
         <div onClick={ () => { props.getAgency(result.id)} }>
-          <ListItem alignItems="flex-start" className={classes.linkCursor}>
+          <ListItem alignItems="flex-start" className={classes.linkCursor} key={result.id.toString()}>
             <ListItemAvatar>
               <Avatar variant='rounded' alt={result.abbrev} src={result.image_url}>
                 {result.avatar}
