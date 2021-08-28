@@ -18,9 +18,6 @@ const useStyles = makeStyles((theme) => ({
   },
   inline: {
     display: 'inline',
-  },
-  linkCursor: {
-    cursor: 'pointer',
   }
 }));
 
@@ -58,7 +55,7 @@ export default function AgenciesResults(props) {
 
       return(
         <div onClick={ () => { props.getAgency(result.id)} }>
-          <ListItem alignItems="flex-start" className={classes.linkCursor} key={result.id.toString()}>
+          <ListItem className='results-item' alignItems="flex-start" key={result.id.toString()}>
             <ListItemAvatar>
               <Avatar variant='rounded' alt={result.abbrev} src={result.image_url}>
                 {result.avatar}
@@ -86,6 +83,7 @@ export default function AgenciesResults(props) {
       )
     })}
     </List>
+    <AgenciesResultsBar results={props.results} />
   </Paper>  
   )
 }
