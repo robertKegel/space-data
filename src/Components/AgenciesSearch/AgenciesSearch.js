@@ -64,7 +64,7 @@ export default function AgenciesSearch() {
           handleSearchChange={handleSearchChange} 
           search={search}
         />
-        <AgenciesResults results={results.results} getAgency={getAgency} />
+        <AgenciesResults results={results} getAgency={getAgency} />
       </div>
     );
   }

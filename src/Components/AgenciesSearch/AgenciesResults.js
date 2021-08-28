@@ -8,6 +8,7 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
+import AgenciesResultsBar from './AgenciesResultsBar';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,8 +29,9 @@ export default function AgenciesResults(props) {
 
   return (
   <Paper className='agencies-results'>
+    <AgenciesResultsBar results={props.results} />
     <List className={classes.root}>
-    {props.results.map((result) => {
+    {props.results.results.map((result) => {
       if (!result.description){
         result.description = "No description";
 

@@ -10,3 +10,9 @@
   padding: 15px;
 }
 
+.results-bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
