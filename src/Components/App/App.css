@@ -4,6 +4,11 @@
   padding: 15px;
 }
 
+.results {
+  max-height: 500px;
+  overflow: auto;
+}
+
 .results-bar {
   width: 100%;
   display: flex;
@@ -17,7 +22,7 @@
 }
 
 .results-item:hover {
-  background-color: #80808025;
+  background-color: #80808015;
 }
 
 .results-count {
@@ -25,11 +30,6 @@
 }
 
 .arrow {
-  cursor: pointer;
-}
-
-.arrow:hover {
-  box-shadow: 0px 0px 5px grey;
 }
 
 .hidden {
