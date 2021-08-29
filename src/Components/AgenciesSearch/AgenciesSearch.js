@@ -61,6 +61,12 @@ export default function AgenciesSearch() {
           results: data.results
         }}})
       })
+      .then(() => {
+        let resultsDiv = document.getElementById('results');
+        if (resultsDiv) {
+          resultsDiv.scrollTop = 0;
+        }
+      })
   }
 
   if (agency.agency) {
