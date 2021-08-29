@@ -5,7 +5,7 @@ export default function AgenciesSearchBar(props) {
   let searchButtonText = props.search.searching ? "Searching..." : "Search";
 
   return (
-    <Paper className='agencies-search'>
+    <Paper className='agencies'>
       <TextField 
         id="agencies-search" 
         label="Search" 

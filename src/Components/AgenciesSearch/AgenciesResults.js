@@ -25,10 +25,12 @@ export default function AgenciesResults(props) {
   const classes = useStyles();
 
   return (
-  <Paper className='agencies-results'>
+  <Paper className='agencies'>
     <AgenciesResultsBar results={props.results} getAgencyPage={props.getAgencyPage} />
     <List className={classes.root}>
-    {props.results.results.map((result) => {
+    {props.results.results.map((result, index, array) => {
+      let isLast = index === array.length - 1;
+
       if (!result.description){
         result.description = "No description";
 
@@ -78,7 +80,7 @@ export default function AgenciesResults(props) {
               }
             />
           </ListItem>
-          <Divider />
+          { isLast ? '' : <Divider />}
         </div> 
       )
     })}

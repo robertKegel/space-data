@@ -1,12 +1,6 @@
-.agencies-search {
+.agencies {
   max-width: 600px;
-  margin: auto;
-  padding: 15px;
-}
-
-.agencies-results {
-  max-width: 600px;
-  margin: auto;
+  margin: 5px auto;
   padding: 15px;
 }
 
