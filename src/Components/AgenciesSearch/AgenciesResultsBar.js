@@ -1,6 +1,7 @@
 import ArrowBackSharpIcon from '@material-ui/icons/ArrowBackSharp';
 import ArrowForwardSharpIcon from '@material-ui/icons/ArrowForwardSharp';
 import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 
 export default function AgenciesResultsBar(props) {
 
@@ -11,10 +12,16 @@ export default function AgenciesResultsBar(props) {
 
   return (
     <div className='results-bar'>
-      <ArrowBackSharpIcon 
+      <Button
         className={ isBack ? 'arrow' : 'hidden' } 
         onClick={() => { props.getAgencyPage(props.results.previous) }}
-      />
+      >
+        <Typography variant='overline' >
+          <ArrowBackSharpIcon />
+          Prev
+        </Typography>
+      </Button>
+            
       <Typography 
         variant='subtitle1'
         className={ isResults ? 'results-count' : 'hidden' }
@@ -22,10 +29,15 @@ export default function AgenciesResultsBar(props) {
         Results: {props.results.count}
       </Typography>
         
-      <ArrowForwardSharpIcon 
+      <Button
         className={ isNext ? 'arrow' : 'hidden' } 
         onClick={() => { props.getAgencyPage(props.results.next) }}
-      />
+      >
+        <Typography variant='overline' >
+          Next
+          <ArrowForwardSharpIcon />
+        </Typography>
+      </Button>
     </div>
   )
 }
