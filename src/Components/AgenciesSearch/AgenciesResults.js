@@ -25,7 +25,7 @@ export default function AgenciesResults(props) {
   const classes = useStyles();
 
   return (
-  <Paper className='agencies results'>
+  <Paper className='agencies results' id='results'>
     <AgenciesResultsBar results={props.results} getAgencyPage={props.getAgencyPage} />
     <List className={classes.root}>
     {props.results.results.map((result, index, array) => {
