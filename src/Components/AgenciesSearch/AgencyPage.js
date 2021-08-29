@@ -1,12 +1,14 @@
 
 export default function AgencyPage(props) {
+  window.scrollTo(0,0);
+
   return (
     <div>
       <button onClick={() => {props.setAgency((prev) => {return {...prev, ...{ agency: null }}})}}>Back to results</button>
       <h1>{props.agency.name}</h1>
       <p>Country: {props.agency.country_code}</p>
       <a href={props.agency.info_url}>
-        <img src={props.agency.image_url} height='300px' alt={props.agency.name}></img>
+        <img src={props.agency.image_url} height='200px' alt={props.agency.name}></img>
       </a>
       <br></br>
       <p>{props.agency.description}</p>
