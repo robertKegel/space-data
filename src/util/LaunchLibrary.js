@@ -15,6 +15,11 @@ const LaunchLibrary = {
     let route = BASE_URL_DEV + '/agencies/' + id;
     return fetch(route)
       .then(response => response.json())
+  },
+  getAgencyPage(url) {
+    let route = url;
+    return fetch(route)
+      .then(response => response.json())
   }
 }
 

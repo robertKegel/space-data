@@ -26,7 +26,7 @@ export default function AgenciesResults(props) {
 
   return (
   <Paper className='agencies-results'>
-    <AgenciesResultsBar results={props.results} />
+    <AgenciesResultsBar results={props.results} getAgencyPage={props.getAgencyPage} />
     <List className={classes.root}>
     {props.results.results.map((result) => {
       if (!result.description){
@@ -83,7 +83,7 @@ export default function AgenciesResults(props) {
       )
     })}
     </List>
-    <AgenciesResultsBar results={props.results} />
+    <AgenciesResultsBar results={props.results} getAgencyPage={props.getAgencyPage} />
   </Paper>  
   )
 }

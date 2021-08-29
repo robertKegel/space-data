@@ -26,3 +26,19 @@
   background-color: #80808025;
 }
 
+.results-count {
+  font-style: italic;
+}
+
+.arrow {
+  cursor: pointer;
+}
+
+.arrow:hover {
+  box-shadow: 0px 0px 5px grey;
+}
+
+.hidden {
+  visibility: hidden;
+}
+

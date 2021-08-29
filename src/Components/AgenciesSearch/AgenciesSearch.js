@@ -51,6 +51,18 @@ export default function AgenciesSearch() {
       })
   }
 
+  function getAgencyPage(url) {
+    LaunchLibrary.getAgencyPage(url)
+      .then((data) => { 
+        setResults((prev) => { return {...prev, ...{
+          count: data.count,
+          next: data.next,
+          previous: data.previous,
+          results: data.results
+        }}})
+      })
+  }
+
   if (agency.agency) {
     return (
       <AgencyPage agency={agency.agency} setAgency={setAgency} />
@@ -64,7 +76,7 @@ export default function AgenciesSearch() {
           handleSearchChange={handleSearchChange} 
           search={search}
         />
-        <AgenciesResults results={results} getAgency={getAgency} />
+        <AgenciesResults results={results} getAgency={getAgency} getAgencyPage={getAgencyPage} />
       </div>
     );
   }
