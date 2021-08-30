@@ -36,3 +36,8 @@
   visibility: hidden;
 }
 
+.agencypage-stats {
+  max-width: 280px;
+  margin: auto;
+}
+
