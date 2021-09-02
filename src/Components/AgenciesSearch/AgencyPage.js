@@ -15,18 +15,18 @@ export default function AgencyPage(props) {
         <Divider />
         <Grid container spacing={3} direction="row" justifyContent="center" alignItems="center" >
           <Grid item xs={6}>
-          <div className='agencypage-links'>
-            <a href={props.agency.info_url}>
+          <a href={props.agency.info_url}>
+            <div className='agencypage-links'>
               <img src={props.agency.logo_url} width='96px' alt={props.agency.name}></img>
-            </a>
-          </div>
+            </div>
+          </a>
           </Grid>
           <Grid item xs={6}>
-          <div className='agencypage-links'>
-            <a href={props.agency.wiki_url}>
+          <a href={props.agency.wiki_url}>
+            <div className='agencypage-links'>
               <img src='https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/800px-Wikipedia-logo-v2.svg.png' width='96px' height='96px' alt='Wikipedia'></img>
-            </a>
-          </div>
+            </div>
+          </a>
           </Grid>
         </Grid>
         <Divider />
