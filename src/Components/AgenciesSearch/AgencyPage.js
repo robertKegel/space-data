@@ -11,13 +11,13 @@ export default function AgencyPage(props) {
       <Button onClick={() => {props.setAgency((prev) => {return {...prev, ...{ agency: null }}})}}>Back to results</Button>
       <Paper>
         <img src={props.agency.image_url} width='100%' alt={props.agency.name}></img>
-        <Typography variant='h3' align='center' className='agencypage-indent'>{props.agency.name}</Typography>
+        <Typography variant='h4' align='center' className='agencypage-indent'>{props.agency.name.toUpperCase()}</Typography>
         <Divider />
         <Grid container spacing={3} direction="row" justifyContent="center" alignItems="center" >
           <Grid item xs={6}>
           <a href={props.agency.info_url}>
             <div className='agencypage-links'>
-              <img src={props.agency.logo_url} width='96px' alt={props.agency.name}></img>
+              <img src={props.agency.logo_url} alt={props.agency.name}></img>
             </div>
           </a>
           </Grid>
