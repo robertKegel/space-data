@@ -1,14 +1,13 @@
 import { Paper, Typography, Button, List, ListItem, Grid, Divider } from '@material-ui/core';
 
 export default function AgencyPage(props) {
-  window.scrollTo(0,0);
 
   if (!props.agency.image_url) {
     props.agency.image_url = 'https://photographyproject.uk/wp-content/uploads/2019/11/sombrero-galaxy-scaled.jpg'
   }
 
   return (
-    <Paper className='agencies'>
+    <Paper className='agencies agencypage' id='agency'>
       <Button onClick={() => {props.setAgency((prev) => {return {...prev, ...{ agency: null }}})}}>Back to results</Button>
       <Paper>
         <img src={props.agency.image_url} width='100%' alt={props.agency.name}></img>
@@ -18,14 +17,14 @@ export default function AgencyPage(props) {
           <Grid item xs={6}>
           <div className='agencypage-links'>
             <a href={props.agency.info_url}>
-              <img src={props.agency.logo_url} width='25%' alt={props.agency.name}></img>
+              <img src={props.agency.logo_url} width='96px' alt={props.agency.name}></img>
             </a>
           </div>
           </Grid>
           <Grid item xs={6}>
           <div className='agencypage-links'>
             <a href={props.agency.wiki_url}>
-              <img src='https://upload.wikimedia.org/wikipedia/commons/c/c8/Black_W_for_promotion.png' width='20%' alt='Wikipedia'></img>
+              <img src='https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/800px-Wikipedia-logo-v2.svg.png' width='96px' height='96px' alt='Wikipedia'></img>
             </a>
           </div>
           </Grid>
@@ -62,9 +61,6 @@ export default function AgencyPage(props) {
         </Grid>
 
       </Grid>
-      
-
-      
     </Paper>
   )
 }

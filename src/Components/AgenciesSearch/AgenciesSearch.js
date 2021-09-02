@@ -49,6 +49,12 @@ export default function AgenciesSearch() {
       .then((data) => {
         setAgency((prev) => { return {...prev, ...{ agency: data }}})
       })
+      .then(() => {
+        let agencyDiv = document.getElementById('agency');
+        if (agencyDiv) {
+          agencyDiv.scrollTop = 0;
+        }
+      })
   }
 
   function getAgencyPage(url) {
