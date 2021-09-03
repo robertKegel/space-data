@@ -1,4 +1,4 @@
-import { Paper, Typography, Button, List, ListItem, Grid, Divider } from '@material-ui/core';
+import { Paper, Typography, Button, List, ListItem, ListItemText, ListItemSecondaryAction, Grid, Divider } from '@material-ui/core';
 
 export default function AgencyPage(props) {
 
@@ -8,7 +8,9 @@ export default function AgencyPage(props) {
 
   return (
     <Paper className='agencies agencypage' id='agency'>
+      
       <Button onClick={() => {props.setAgency((prev) => {return {...prev, ...{ agency: null }}})}}>Back to results</Button>
+      
       <Paper>
         <img src={props.agency.image_url} width='100%' alt={props.agency.name}></img>
         <Typography variant='h4' align='center' className='agencypage-indent'>{props.agency.name.toUpperCase()}</Typography>
@@ -58,6 +60,57 @@ export default function AgencyPage(props) {
             <ListItem>Failed Landings: {props.agency.failed_launches}</ListItem>
           </List>
         </Paper>
+        </Grid>
+
+        <Grid item xs={12}>
+          <Paper>
+            <img src={props.agency.nation_url} width='100%' alt={props.agency.country_code}></img>
+            <Divider />
+            <Typography variant='h4' align='center'>Launchers</Typography>
+            <List>
+            {props.agency.launcher_list.map((launcher, index, array) => {
+              let isLastLauncher = index === array.length - 1;
+              return (
+                <div>
+                <ListItem id={launcher.id.toString()}>
+                  <ListItemText 
+                    primary={launcher.name}
+                    secondary={launcher.description}
+                  />
+                  {launcher.image_url ? <img src={launcher.image_url} width='100%' alt={launcher.name}></img> : ''}
+                </ListItem>
+                { isLastLauncher ? '' : <Divider /> }
+                </div>
+                
+              )
+            })}
+            </List>
+          </Paper>
+        </Grid>
+
+        <Grid item xs={12}>
+            <Paper>
+              <img src={props.agency.logo_url} width='100%' alt={props.agency.name}></img>
+              <Divider />
+              <Typography variant='h4' align='center'>Spacecraft</Typography>
+              <List>
+                {props.agency.spacecraft_list.map((spacecraft, index, array) => {
+                  let isLastSpacecraft = index === array.length - 1;
+                  return (
+                    <div>
+                      <ListItem id={spacecraft.id.toString()}>
+                        <ListItemText 
+                          primary={spacecraft.name}
+                          secondary={spacecraft.history}
+                        />
+                        {spacecraft.image_url ? <img src={spacecraft.image_url} width='100%' alt={spacecraft.name}></img> : ''}
+                      </ListItem>
+                      { isLastSpacecraft ? '' : <Divider />}
+                    </div>
+                  )
+                })}
+              </List>
+            </Paper>
         </Grid>
 
       </Grid>
