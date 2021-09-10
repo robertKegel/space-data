@@ -6,9 +6,12 @@ export default function EventsList(props) {
   return (
     <List className ='events-list'>
         {props.upcomingEvents ? props.upcomingEvents.map( (event, index, array) => {
+
           const eventDate = new Date(event.date).toLocaleString('en-US');
           event.date = eventDate;
+
           const isLast = index === array.length - 1;
+          
           return (
             <div>
             <ListItem>
