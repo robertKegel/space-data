@@ -14,8 +14,8 @@ export default function Events (props) {
   });
 
   return(
-    <Paper className="events">
-      <Typography variant='h4' align='center'>
+    <Paper className='events' >
+      <Typography variant='h5' align='center' color='primary' gutterBottom >
         Upcoming Events
       </Typography>
       <Divider />
