@@ -23,6 +23,16 @@ const LaunchLibrary = {
     let route = url;
     return fetch(route)
       .then(response => response.json())
+  },
+  getPage(url) {
+    let route = url;
+    return fetch(route)
+      .then(response => response.json())
+  },
+  getUpcomingEvents() {
+    let route = BASE_URL + '/event/upcoming/'
+    return fetch(route)
+      .then(response => response.json())
   }
 }
 
