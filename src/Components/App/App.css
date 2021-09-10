@@ -5,7 +5,7 @@
 }
 
 .results {
-  height: calc( 100vh - 138px );
+  height: calc( 100vh - 168px );
   overflow: auto;
 }
 
@@ -37,7 +37,7 @@
 }
 
 .agencypage {
-  height: calc( 100vh - 15px );
+  height: calc( 100vh - 35px );
   overflow: auto;
 }
 
@@ -69,3 +69,11 @@
   background-color: #00000025;
 }
 
+.events {
+  margin-top: 5px;
+}
+
+.events-list {
+  height: calc( 100vh - 80px );
+  overflow: auto;
+}
