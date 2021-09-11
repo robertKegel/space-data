@@ -1,4 +1,4 @@
-import { Paper, Typography, Button, List, ListItem, ListItemText, ListItemSecondaryAction, Grid, Divider } from '@material-ui/core';
+import { Paper, Typography, Button, List, ListItem, ListItemText, ListItemAvatar, Avatar, Grid, Divider } from '@material-ui/core';
 
 export default function AgencyPage(props) {
 
@@ -38,7 +38,7 @@ export default function AgencyPage(props) {
 
       <Grid container spacing={3} alignContent='space-around'>
         <Grid item xs={12} sm={6}>
-        <Paper className='agencypage-stats agencypage-indent'>
+        <Paper className='agencypage-stats'>
           <Typography variant='h6' align='center'>Launch Statistics</Typography>
           <List>
             <ListItem>Total Launches: {props.agency.total_launch_count}</ListItem>
@@ -51,7 +51,7 @@ export default function AgencyPage(props) {
         </Grid>
 
         <Grid item xs={12} sm={6}>
-        <Paper className='agencypage-stats agencypage-indent'>
+        <Paper className='agencypage-stats'>
           <Typography variant='h6' align='center'>Landing Statistics</Typography>
           <List>
             <ListItem>Attempted Landings: {props.agency.attempted_landings}</ListItem>
@@ -77,7 +77,9 @@ export default function AgencyPage(props) {
                     primary={launcher.name}
                     secondary={launcher.description}
                   />
-                  {launcher.image_url ? <img src={launcher.image_url} width='100%' alt={launcher.name}></img> : ''}
+                  <ListItemAvatar>
+                  {launcher.image_url ? <Avatar src={launcher.image_url} alt={launcher.name} variant='rounded' /> : ''}
+                  </ListItemAvatar>
                 </ListItem>
                 { isLastLauncher ? '' : <Divider /> }
                 </div>
@@ -103,7 +105,9 @@ export default function AgencyPage(props) {
                           primary={spacecraft.name}
                           secondary={spacecraft.history}
                         />
-                        {spacecraft.image_url ? <img src={spacecraft.image_url} width='100%' alt={spacecraft.name}></img> : ''}
+                        <ListItemAvatar>
+                        {spacecraft.image_url ? <Avatar src={spacecraft.image_url} alt={spacecraft.name} variant='rounded' /> : ''}
+                        </ListItemAvatar>
                       </ListItem>
                       { isLastSpacecraft ? '' : <Divider />}
                     </div>

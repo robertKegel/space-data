@@ -1,6 +1,6 @@
 .agencies {
   max-width: 600px;
-  margin: 5px auto;
+  margin: auto;
   padding: 15px;
 }
 
@@ -47,7 +47,7 @@
 }
 
 .agencypage-indent {
-  
+  padding-left: 5px;  
 }
 
 .agencypage-container {
@@ -70,8 +70,9 @@
 }
 
 .events {
-  margin: 1.5vh;
   height: 95vh;
+  max-width: 90%;
+  margin: auto;
 }
 
 .events-list {
