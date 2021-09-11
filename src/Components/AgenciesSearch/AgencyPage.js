@@ -1,6 +1,21 @@
 import { Paper, Typography, Button, List, ListItem, ListItemText, ListItemAvatar, Avatar, Grid, Divider, Accordion, AccordionSummary, AccordionDetails } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+  small: {
+    width: theme.spacing(3),
+    height: theme.spacing(3),
+  },
+  large: {
+    width: theme.spacing(6),
+    height: theme.spacing(6),
+  }
+}));
+
 export default function AgencyPage(props) {
+
+  const classes = useStyles();
 
   if (!props.agency.image_url) {
     props.agency.image_url = 'https://photographyproject.uk/wp-content/uploads/2019/11/sombrero-galaxy-scaled.jpg'
@@ -84,14 +99,14 @@ export default function AgencyPage(props) {
                   let isLastLauncher = index === array.length - 1;
                   return (
                     <div>
-                    <ListItem id={launcher.id.toString()}>
+                    <ListItem alignItems='center' id={launcher.id.toString()}>
+                      <ListItemAvatar>
+                        {launcher.image_url ? <Avatar src={launcher.image_url} alt={launcher.name} variant='rounded' className={classes.large} /> : ''}
+                      </ListItemAvatar>
                       <ListItemText 
                         primary={launcher.name}
                         secondary={launcher.description}
                       />
-                      <ListItemAvatar>
-                      {launcher.image_url ? <Avatar src={launcher.image_url} alt={launcher.name} variant='rounded' /> : ''}
-                      </ListItemAvatar>
                     </ListItem>
                     { isLastLauncher ? '' : <Divider /> }
                     </div>
@@ -119,13 +134,13 @@ export default function AgencyPage(props) {
                       return (
                         <div>
                           <ListItem id={spacecraft.id.toString()}>
+                            <ListItemAvatar>
+                              {spacecraft.image_url ? <Avatar src={spacecraft.image_url} alt={spacecraft.name} variant='rounded' className={classes.large} /> : ''}
+                            </ListItemAvatar>
                             <ListItemText 
                               primary={spacecraft.name}
                               secondary={spacecraft.history}
                             />
-                            <ListItemAvatar>
-                            {spacecraft.image_url ? <Avatar src={spacecraft.image_url} alt={spacecraft.name} variant='rounded' /> : ''}
-                            </ListItemAvatar>
                           </ListItem>
                           { isLastSpacecraft ? '' : <Divider />}
                         </div>
