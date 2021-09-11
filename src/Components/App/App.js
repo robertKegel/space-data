@@ -10,7 +10,7 @@ function App() {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Grid container spacing={2} justifyContent='space-around'>
+      <Grid container justifyContent='space-around'>
         <Hidden only={['xs', 'sm']}>
         <Grid item xs={10} md={5}>
           <Events />
