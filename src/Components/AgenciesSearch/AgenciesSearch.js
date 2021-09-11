@@ -24,7 +24,7 @@ export default function AgenciesSearch() {
   }
 
   function handleSearchKeydown(e) {
-    let isEnter = e.code.includes('Enter');
+    let isEnter = e.code ? e.code.includes('Enter') : false;
     if (isEnter) {
       getAgencyList();
     }
