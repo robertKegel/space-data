@@ -79,3 +79,8 @@
   height: 90%;
   overflow: auto;
 }
+
+.button-group {
+  margin-bottom: 15px;
+  background-color: #808080;
+}
