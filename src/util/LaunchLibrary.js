@@ -14,8 +14,21 @@ const LaunchLibrary = {
     return fetch(route)
       .then(response => response.json())
   },
+  search(page, searchTerm=null) {
+    let route = BASE_URL + '/' + page + '/';
+    if (searchTerm) {
+      route += '?search=' + searchTerm;
+    }
+    return fetch(route)
+      .then(response => response.json()) 
+  },
   getAgency(id) {
     let route = BASE_URL + '/agencies/' + id;
+    return fetch(route)
+      .then(response => response.json())
+  },
+  getById(page, id) {
+    let route = BASE_URL + '/' + page + '/' + id;
     return fetch(route)
       .then(response => response.json())
   },
