@@ -7,7 +7,7 @@ export default function ResultsBar(props) {
 
   let isNext = props.results.next !== null;
   let isBack = props.results.previous !== null;
-  let isResults = props.results.results.length > 0;
+  let isResults = props.results.results.length >= 0;
 
 
   return (

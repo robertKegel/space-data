@@ -77,7 +77,7 @@ export default function Results(props) {
       )
     })}
     </List>
-    <ResultsBar results={props.results} getPage={props.getPage} />
+    {props.results.count ? <ResultsBar results={props.results} getPage={props.getPage} /> : null}
   </Paper>  
   )
 }
