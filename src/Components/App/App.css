@@ -54,11 +54,11 @@
   margin: 5px;
 }
 
-.agencypage-links {
+/* .agencypage-links {
   display: flex;
   justify-content: center;
   height: 96px;
-}
+} */
 
 .agencypage-links img {
   max-height: 100%;

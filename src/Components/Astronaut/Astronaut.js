@@ -27,7 +27,7 @@ export default function Astronaut() {
   function handleSearchKeydown(e) {
     let isEnter = e.code ? e.code.includes('Enter') : false;
     if (isEnter) {
-      search();
+      searchForTerm();
     }
   }
 
