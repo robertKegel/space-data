@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Divider, Paper, Typography } from '@material-ui/core';
+import { Divider, Paper, Typography } from '@mui/material';
 import EventsList from './EventsList';
 import LaunchLibrary from '../../util/LaunchLibrary';
 

@@ -2,10 +2,10 @@ import Events from "../Events/Events";
 import SearchSelector from '../SearchSelector/SearchSelector.js';
 import Agencies from "../Agencies/Agencies";
 import Astronaut from '../Astronaut/Astronaut';
-import { Grid, Hidden } from "@material-ui/core";
+import { Grid, Hidden } from "@mui/material";
 import React from 'react';
 import './App.css';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import CssBaseline from '@mui/material/CssBaseline';
 
 function App() {
 

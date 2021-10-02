@@ -1,15 +1,15 @@
-import { Paper, Typography, Button, List, ListItem, ListItemText, ListItemAvatar, Avatar, Grid, Divider, Accordion, AccordionSummary, AccordionDetails } from '@material-ui/core';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { makeStyles } from '@material-ui/core/styles';
+import { Paper, Typography, Button, List, ListItem, ListItemText, ListItemAvatar, Avatar, Grid, Divider, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme) => ({
   small: {
-    width: theme.spacing(3),
-    height: theme.spacing(3),
+    width: '24px',
+    height: '24px',
   },
   large: {
-    width: theme.spacing(6),
-    height: theme.spacing(6),
+    width: '48px',
+    height: '48px',
   }
 }));
 

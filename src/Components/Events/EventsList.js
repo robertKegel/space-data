@@ -1,4 +1,4 @@
-import { List, ListItem, ListItemText, Divider } from '@material-ui/core';
+import { List, ListItem, ListItemText, Divider } from '@mui/material';
 
 export default function EventsList(props) {
   

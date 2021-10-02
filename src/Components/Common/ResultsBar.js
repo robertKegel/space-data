@@ -1,7 +1,7 @@
-import ArrowBackSharpIcon from '@material-ui/icons/ArrowBackSharp';
-import ArrowForwardSharpIcon from '@material-ui/icons/ArrowForwardSharp';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
+import ArrowBackSharpIcon from '@mui/icons-material/ArrowBackSharp';
+import ArrowForwardSharpIcon from '@mui/icons-material/ArrowForwardSharp';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
 
 export default function ResultsBar(props) {
 

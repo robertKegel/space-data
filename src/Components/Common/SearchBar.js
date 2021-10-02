@@ -1,4 +1,4 @@
-import { TextField, Button, Paper } from '@material-ui/core';
+import { TextField, Button, Paper } from '@mui/material';
 
 export default function SearchBar(props) {
   
